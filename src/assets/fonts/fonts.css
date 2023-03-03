@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'InterMedium';
+    font-style: normal;
+    src: url('./Inter-Medium.ttf'); /* IE9 Compat Modes */
+    src: local('InterMedium'),
+    url('./Inter-Medium.ttf') format('truetype') /* Safari, Android, iOS */
+}
+@font-face {
+    font-family: 'InterBold';
+    font-style: normal;
+    src: url('./Inter-Bold.ttf'); /* IE9 Compat Modes */
+    src: local('InterBold'),
+    url('./Inter-Bold.ttf') format('truetype') /* Safari, Android, iOS */
+}
+@font-face {
+    font-family: 'InterSemiBold';
+    font-style: normal;
+    src: url('./Inter-SemiBold.ttf'); /* IE9 Compat Modes */
+    src: local('InterSemiBold'),
+    url('./Inter-SemiBold.ttf') format('truetype') /* Safari, Android, iOS */
+}
+@font-face {
+    font-family: 'InterRegular';
+    font-style: normal;
+    src: url('./Inter-Regular.ttf'); /* IE9 Compat Modes */
+    src: local('InterRegular'),
+    url('./Inter-Regular.ttf') format('truetype') /* Safari, Android, iOS */
+}

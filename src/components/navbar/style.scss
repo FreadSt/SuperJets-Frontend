@@ -1,0 +1,41 @@
+.navbar{
+  display: flex;
+  height: 72px;
+  position: absolute;
+  width: 100%;
+  justify-content: flex-start;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+  .navbar-content{
+    display: flex;
+    align-self: center;
+    margin-left: 300px;
+    align-items: center;
+    span{
+      font-family: InterSemiBold;
+      font-size: 10px;
+      margin-right: 10px;
+      color: #22272E;
+    }
+    .buttons-group{
+      display: flex;
+      button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 0px 10px 0px 0px;
+        border: none;
+        border-radius: 5px;
+        width: 80px;
+        height: 32px;
+      }
+      .save-btn{
+        background:  #22272E;
+        border-radius: 4px;
+        span{
+          color: #FFFFFF;
+        }
+      }
+    }
+  }
+}

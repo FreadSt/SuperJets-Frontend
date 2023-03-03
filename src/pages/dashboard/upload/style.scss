@@ -1,0 +1,83 @@
+.upload{
+  .upload-title{
+    display: flex;
+    align-items: center;
+    h1{
+      font-size: 24px;
+      line-height: 29px;
+      color: #22272E;
+      font-family: InterBold;
+    }
+    button{
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      margin-right: 20px;
+      img{
+        width: 7px;
+        height: 14px;
+        cursor: pointer;
+      }
+    }
+  }
+  .upload-alert{
+    display: flex;
+    align-items: center;
+    background: rgba(34, 39, 46, 0.04);
+    border-radius: 4px;
+    width: 390px;
+    padding: 10px;
+    height: 30px;
+    margin-top: 10px;
+    img{
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+    p{
+      font-size: 12px;
+      line-height: 15px;
+      color: #22272E;
+      opacity: 0.5;
+      font-family: InterSemiBold;
+      b{
+        font-family: InterBold;
+      }
+    }
+  }
+  .file-drop{
+    margin:30px 0 0 0 ;
+    width: 400px;
+    height: 235px;
+    box-shadow: -1.40056px -1.40056px 16.8067px 4.20168px rgba(0, 0, 0, 0.05), 1.40056px 1.40056px 16.8067px 4.20168px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+  }
+  .upload-button{
+    margin-top: 30px;
+    button{
+      width: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      border-radius: 10px;
+      height: 47px;
+      padding: 0px 16px;
+      background: #22272E;
+      cursor: pointer;
+      span{
+        font-family: InterSemiBold;
+        color: #FFFFFF;
+        font-size: 14px;
+        line-height: 17px;
+      }
+      img{
+        width: 16px;
+        height: 16px;
+        margin-left: 10px;
+      }
+    }
+  }
+}

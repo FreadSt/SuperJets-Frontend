@@ -1,0 +1,19 @@
+.App {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  overflow-y: hidden;
+  position: relative;
+  .pages{
+    left: 300px;
+    top: 100px;
+    margin: 100px 0px 0px 300px;
+    width: 100%;
+    height: 100vh;
+    padding-right: 100px;
+  }
+}
