@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import {useState, useEffect} from "react";
 
 export const Dashboard = () => {
+    const [ETH, setETH] = useState()
     const [isData, setIsData] = useState()
 
     useEffect(() => {
@@ -28,6 +29,12 @@ export const Dashboard = () => {
     }
     console.log(getAccount(), "account")
 
+    fetch("/contract/balances").then((res)=>{
+        res.json().then((data)=>{
+            setETH(data.balance_eth);
+        })
+    })
+
     const navigate = useNavigate()
     const handleNav = () => {
         navigate(`/dashboard/upload`, {replace:true})
@@ -45,11 +52,11 @@ export const Dashboard = () => {
                 <div className={'coin-div'}>
                     <div className={'XNL'}>
                         <span>XNL</span>
-                        <h1>0.00</h1>
+                        <h1>0.0</h1>
                     </div>
                     <div className={'ETH'}>
                         <span>ETH</span>
-                        <h1>0.00</h1>
+                        <h1>{ETH}</h1>
                     </div>
                 </div>
             </div>
