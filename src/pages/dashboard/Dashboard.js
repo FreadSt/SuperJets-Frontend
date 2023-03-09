@@ -3,8 +3,31 @@ import weeklogo from "../../assets/images/addweek.png";
 import succsess from "../../assets/images/complete.png";
 import upload from "../../assets/images/upload.png";
 import { useNavigate } from "react-router-dom";
+import {useState, useEffect} from "react";
 
 export const Dashboard = () => {
+    const [isData, setIsData] = useState()
+
+    useEffect(() => {
+        if(window.ethereum){
+            console.log("metamask ready")
+        }else{
+            alert("install metamask extension!!")
+        }
+    }, [])
+
+    async function getAccount() {
+        let accounts = [];
+        if (accounts.length == 0) {
+            accounts = await window.ethereum.request({
+                method: 'eth_requestAccounts',
+            });
+            console.log(accounts, "accounts")
+        }
+        return accounts[0];
+    }
+    console.log(getAccount(), "account")
+
     const navigate = useNavigate()
     const handleNav = () => {
         navigate(`/dashboard/upload`, {replace:true})
@@ -14,7 +37,6 @@ export const Dashboard = () => {
             <h1 className={"title-dashboard"}>Dashboard</h1>
             <h3 className={'suptitle-dashboard'}>Statistic</h3>
             <hr/>
-
             <div className={'wallet'}>
                 <div className={'title'}>
                     <span>Revenue</span>

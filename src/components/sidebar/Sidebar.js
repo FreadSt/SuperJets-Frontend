@@ -2,6 +2,7 @@ import './style.scss';
 import logo from "../../assets/images/image 2.png";
 import {Link} from "react-router-dom";
 import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export const Sidebar = () => {
     const location = useLocation();
@@ -25,10 +26,10 @@ export const Sidebar = () => {
                             {title:"DASHBOARD", path:"/dashboard"},
                             {title:"AIRDROPS", path:"/airdrop"},
                         ].map(item=>
-                            <div>
+                            <div key={item.path}>
                                 <Link to={item.path}
                                       className={item.path === location.pathname ? "active" : null}
-                                      id={item.path === location.pathname ? "home" : null}
+                                      id={item.path === location.pathname ? "dashboard" : null}
                                 ><span>{item.title}</span></Link>
                             </div>
                         )
