@@ -7,8 +7,8 @@ import {useState, useEffect} from "react";
 import {Weeks} from "./weeks/Weeks";
 
 export const Dashboard = () => {
-    const [isData, setIsData] = useState();
-    /*
+    const [isData, setIsData] = useState()
+
     useEffect(() => {
         if(window.ethereum){
             console.log("metamask ready")
@@ -28,7 +28,11 @@ export const Dashboard = () => {
         return accounts[0];
     }
     console.log(getAccount(), "account")
-     */
+
+    const navigate = useNavigate()
+    const handleNav = () => {
+        navigate(`/dashboard/upload`, {replace:true})
+    }
     return(
         <div className={'dashboard'}>
             <h1 className={"title-dashboard"}>Dashboard</h1>
@@ -42,11 +46,11 @@ export const Dashboard = () => {
                 <div className={'coin-div'}>
                     <div className={'XNL'}>
                         <span>XNL</span>
-                        <h1>0.00</h1>
+                        <h1>0.0</h1>
                     </div>
                     <div className={'ETH'}>
                         <span>ETH</span>
-                        <h1>0.00</h1>
+                        <h1>{ETH}</h1>
                     </div>
                 </div>
             </div>
