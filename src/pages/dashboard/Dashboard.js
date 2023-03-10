@@ -8,6 +8,7 @@ import {Weeks} from "./weeks/Weeks";
 
 export const Dashboard = () => {
     const [isData, setIsData] = useState()
+    const [ETH, setETH] = useState()
 
     useEffect(() => {
         if(window.ethereum){
@@ -28,6 +29,12 @@ export const Dashboard = () => {
         return accounts[0];
     }
     console.log(getAccount(), "account")
+
+    fetch("/contract/balances").then((res)=>{
+        res.json().then((res)=>{
+            setETH(res.balance_eth);
+        })
+    })
 
     const navigate = useNavigate()
     const handleNav = () => {
