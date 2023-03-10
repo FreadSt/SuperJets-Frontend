@@ -4,10 +4,11 @@ import succsess from "../../assets/images/complete.png";
 import upload from "../../assets/images/upload.png";
 import { useNavigate } from "react-router-dom";
 import {useState, useEffect} from "react";
+import {Weeks} from "./weeks/Weeks";
 
 export const Dashboard = () => {
-    const [isData, setIsData] = useState()
-
+    const [isData, setIsData] = useState();
+    /*
     useEffect(() => {
         if(window.ethereum){
             console.log("metamask ready")
@@ -27,11 +28,7 @@ export const Dashboard = () => {
         return accounts[0];
     }
     console.log(getAccount(), "account")
-
-    const navigate = useNavigate()
-    const handleNav = () => {
-        navigate(`/dashboard/upload`, {replace:true})
-    }
+     */
     return(
         <div className={'dashboard'}>
             <h1 className={"title-dashboard"}>Dashboard</h1>
@@ -53,7 +50,6 @@ export const Dashboard = () => {
                     </div>
                 </div>
             </div>
-
             <div className={'nft-status'}>
                 {
                     [
@@ -70,28 +66,7 @@ export const Dashboard = () => {
                     })
                 }
             </div>
-
-            <div className={'weeks'}>
-                <div className={'weeks-title'}>
-                    <h1>Weeks</h1>
-                    <div className={'add-week'}>
-                        <span>Create a week</span>
-                        <img src={weeklogo} alt={'week-logo'}/>
-                    </div>
-                </div>
-                <hr/>
-                <div className={'week-cards'}>
-                    <div className={'alert-weeks'}>
-                        <img src={succsess} alt={"succsess"}/>
-                        <p>Congratulations! All scheduled weeks are over. Buyers are waiting for their purchases.
-                            Therefore, you need to upload content that will be sent to their owners.</p>
-                        <button onClick={handleNav}>
-                            <span>Go to upload</span>
-                            <img src={upload} alt={'upload-dashboard'}/>
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <Weeks/>
         </div>
     )
 }

@@ -6,14 +6,15 @@
   margin: 0;
   padding: 0;
   display: flex;
-  overflow-y: hidden;
   position: relative;
+  background-color: #F6F8FA;
+
   .pages{
     left: 300px;
     top: 100px;
     margin: 100px 0px 0px 300px;
     width: 100%;
-    height: 100vh;
+    height: auto;
     padding-right: 100px;
   }
 }
