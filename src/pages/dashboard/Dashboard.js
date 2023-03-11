@@ -7,8 +7,12 @@ import {useState, useEffect} from "react";
 import {Weeks} from "./weeks/Weeks";
 
 export const Dashboard = () => {
-    const [isData, setIsData] = useState()
-    const [ETH, setETH] = useState()
+    const [ETH, setETH] = useState();
+    const [XNL, setXNL] = useState();
+    const [total_supply, setTotalSupply] = useState();
+    const [burned_supply, setBurnedSupply] = useState();
+    const [airdrop_max, setAirdropMax] = useState();
+    const [airdrop_supply, setAirdropSupply] = useState();
 
     useEffect(() => {
         if(window.ethereum){
@@ -28,11 +32,26 @@ export const Dashboard = () => {
         }
         return accounts[0];
     }
-    console.log(getAccount(), "account")
-
+    
+    
     fetch("/contract/balances").then((res)=>{
         res.json().then((res)=>{
             setETH(res.balance_eth);
+            setXNL(res.balance_xnl);
+        })
+    })
+    
+    fetch("/contract/mint_supply").then((res)=>{
+        res.json().then((res)=>{
+            setTotalSupply(res.total_supply);
+            setBurnedSupply(res.burned_supply);
+        })
+    })
+    
+    fetch("/contract/airdrop_supply").then((res)=>{
+        res.json().then((res)=>{
+            setAirdropMax(res.max_supply);
+            setAirdropSupply(res.current_supply);
         })
     })
 
@@ -53,7 +72,7 @@ export const Dashboard = () => {
                 <div className={'coin-div'}>
                     <div className={'XNL'}>
                         <span>XNL</span>
-                        <h1>0.0</h1>
+                        <h1>{XNL}</h1>
                     </div>
                     <div className={'ETH'}>
                         <span>ETH</span>
@@ -64,9 +83,9 @@ export const Dashboard = () => {
             <div className={'nft-status'}>
                 {
                     [
-                        {title:"0", des:"NFTs sold", id:1},
-                        {title:"0/0", des:"NFTs given via Airdrop", id:2},
-                        {title:"0", des:"NFTs burned", id:3}
+                        {title: total_supply, des:"NFTs sold", id:1},
+                        {title: `${airdrop_max}/${airdrop_supply}`, des:"NFTs given via Airdrop", id:2},
+                        {title: burned_supply, des:"NFTs burned", id:3}
                         ].map((item, key) => {
                             return(
                                 <div className={'nft-block'} key={item.id}>
