@@ -6,27 +6,18 @@ import {Navbar} from "./components/navbar/Navbar";
 import {Airdrop} from "./pages/airdrop/Airdrop";
 import {Upload} from "./pages/dashboard/upload/Upload";
 import { useState } from 'react';
+import { getAccount, signData } from "./utils/MetaMask";
 
-async function getAccount() {
-    let accounts = [];
-    if (accounts.length == 0) {
-        accounts = await window.ethereum.request({
-            method: 'eth_requestAccounts',
-        });
-        console.log(accounts, "accounts")
-    }
-    return accounts[0];
-}
 
 async function adminLogin() {
     const from = await getAccount();
+    if (!from){
+        return false;
+    }
     const res = await fetch('/admin/data');
     if (res.status == 200) {
         const data = await res.text();
-        const sign = await window.ethereum.request({
-            method: 'personal_sign',
-            params: [from, data],
-        });
+        const sign = await signData(data);
         const loginRes = await fetch(`/admin/login?sign=${sign}`, {
             method: "POST"
         });

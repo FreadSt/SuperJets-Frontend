@@ -15,11 +15,6 @@ export const Dashboard = () => {
     const [airdrop_supply, setAirdropSupply] = useState(0);
 
     useEffect(() => {
-        if(window.ethereum){
-            console.log("metamask ready")
-        }else{
-            alert("install metamask extension!!")
-        }
     }, [])
     
     fetch("/contract/balances").then((res)=>{
