@@ -1,13 +1,24 @@
-import "./style.scss"
+import "./style.scss";
+import {useState} from "react";
 
 export const Airdrop = () => {
+    const [airdrop_max, setAirdropMax] = useState();
+    const [airdrop_supply, setAirdropSupply] = useState();
+
+    fetch("/contract/airdrop_supply").then((res)=>{
+        res.json().then((res)=>{
+            setAirdropMax(res.max_supply);
+            setAirdropSupply(res.current_supply);
+        })
+    })
+
     return(
         <div className={'airdrop'}>
             <h1>Airdrop</h1>
             <div className={'airdrop-content'}>
                 <div className={'drop-block'}>
-                    <h3>Total items: 940</h3>
-                    <h3>Items availabale to drop: 545</h3>
+                    <h3>Total items: {airdrop_max}</h3>
+                    <h3>Items availabale to drop: {airdrop_max - airdrop_supply}</h3>
                     <div className={'upload-field'}>
 
                     </div>
