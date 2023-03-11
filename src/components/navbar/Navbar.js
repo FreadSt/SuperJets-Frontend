@@ -2,8 +2,8 @@ import './style.scss';
 import {useState} from "react";
 
 export const Navbar = () => {
-    const [price_xnl, setPriceXNL] = useState();
-    const [price_eth, setPriceETH] = useState();
+    const [price_xnl, setPriceXNL] = useState("0.0");
+    const [price_eth, setPriceETH] = useState("0.0");
 
     fetch("/contract/prices").then((res)=>{
         res.json().then((res)=>{

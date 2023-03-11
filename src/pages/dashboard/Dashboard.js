@@ -7,12 +7,12 @@ import {useState, useEffect} from "react";
 import {Weeks} from "./weeks/Weeks";
 
 export const Dashboard = () => {
-    const [ETH, setETH] = useState();
-    const [XNL, setXNL] = useState();
-    const [total_supply, setTotalSupply] = useState();
-    const [burned_supply, setBurnedSupply] = useState();
-    const [airdrop_max, setAirdropMax] = useState();
-    const [airdrop_supply, setAirdropSupply] = useState();
+    const [ETH, setETH] = useState("0.0");
+    const [XNL, setXNL] = useState("0.0");
+    const [total_supply, setTotalSupply] = useState(0);
+    const [burned_supply, setBurnedSupply] = useState(0);
+    const [airdrop_max, setAirdropMax] = useState(0);
+    const [airdrop_supply, setAirdropSupply] = useState(0);
 
     useEffect(() => {
         if(window.ethereum){

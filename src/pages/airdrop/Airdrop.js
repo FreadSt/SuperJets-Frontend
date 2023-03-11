@@ -2,8 +2,8 @@ import "./style.scss";
 import {useState} from "react";
 
 export const Airdrop = () => {
-    const [airdrop_max, setAirdropMax] = useState();
-    const [airdrop_supply, setAirdropSupply] = useState();
+    const [airdrop_max, setAirdropMax] = useState(0);
+    const [airdrop_supply, setAirdropSupply] = useState(0);
 
     fetch("/contract/airdrop_supply").then((res)=>{
         res.json().then((res)=>{
