@@ -21,18 +21,6 @@ export const Dashboard = () => {
             alert("install metamask extension!!")
         }
     }, [])
-
-    async function getAccount() {
-        let accounts = [];
-        if (accounts.length == 0) {
-            accounts = await window.ethereum.request({
-                method: 'eth_requestAccounts',
-            });
-            console.log(accounts, "accounts")
-        }
-        return accounts[0];
-    }
-    
     
     fetch("/contract/balances").then((res)=>{
         res.json().then((res)=>{
