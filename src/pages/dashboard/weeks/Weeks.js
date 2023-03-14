@@ -66,7 +66,6 @@ export const Weeks = () => {
         setWeek(sortWeekList());
     }
 
-    
     useEffect(()=>{
         fetch("/contract/sales_state").then((res)=>{
             res.json().then((res)=>{
@@ -135,54 +134,25 @@ export const Weeks = () => {
         <div className={'weeks'}>
             <div className={'weeks-title'}>
                 <h1>Weeks</h1>
-                <div className={'add-week'} onClick={handleOpenPopUp}>
-                    <span>Create a week</span>
-                    <img src={weeklogo} alt={'week-logo'}/>
-                </div>
             </div>
             <hr/>
             <div className={'week-cards'}>
-                <div className={'alert-weeks'}>
-                    <img src={succsess} alt={"succsess"}/>
-                    <p>Congratulations! All scheduled weeks are over. Buyers are waiting for their purchases.
-                        Therefore, you need to upload content that will be sent to their owners.</p>
-                    <button onClick={handleNav}>
-                        <span>Go to upload</span>
-                        <img src={upload} alt={'upload-dashboard'}/>
-                    </button>
-                </div>
+                {
+                    weeks.length >= 9 ?
+                    <div className={'alert-weeks'}>
+                        <img src={succsess} alt={"succsess"}/>
+                        <p>Congratulations! All scheduled weeks are over. Buyers are waiting for their purchases.
+                            Therefore, you need to upload content that will be sent to their owners.</p>
+                        <button onClick={handleNav}>
+                            <span>Go to upload</span>
+                            <img src={upload} alt={'upload-dashboard'}/>
+                        </button>
+                    </div>
+                    :
+                    null
+                }
                 {weeks}
             </div>
-            {isOpenPopUp?
-                <div className={'week-popup'}>
-                    <div className={'modal-window'}>
-                        <p>Set week for configure</p>
-                        <input id="week"
-                            placeholder={'Enter the week'}
-                        />
-                        <p>Set the quantity of items</p>
-                        <input id="quantity"
-                            placeholder={'Enter the quantity'}
-                        />
-                        <div className={'modal-buttons'}>
-                            <button
-                                onClick={() => {setIsOpenPopUp(false)}}
-                                className={'cancel-btn'}
-                            >
-                                <span>Cancel</span>
-                            </button>
-                            <button
-                                onClick={ changeWeek }
-                                className={'confirm-btn'}
-                            >
-                                <span>Confirm and create</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                :
-                null
-            }
         </div>
     )
 }

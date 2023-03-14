@@ -2,6 +2,8 @@ import './style.scss';
 import {useState} from "react";
 
 export const Navbar = () => {
+    const [isOpenPopUp, setIsOpenPopUp] = useState(false);
+    const [isAddKey, setIsAddKey] = useState()
     const [price_xnl, setPriceXNL] = useState("0.0");
     const [price_eth, setPriceETH] = useState("0.0");
 
@@ -19,6 +21,10 @@ export const Navbar = () => {
             setPriceXNL(res.price_xnl);
         })
     })
+    
+    const handleAddKey = () => {
+        setIsAddKey();
+    }
 
     return(
         <div className={'navbar'}>
@@ -38,6 +44,44 @@ export const Navbar = () => {
                     </button>
                 </div>
             </div>
+            <div className='buttons-div'>
+                <buton 
+                    className={'nav-btn'}
+                    onClick={() => {setIsOpenPopUp(true)}}>
+                    <span>Enter key</span>
+                </buton>
+                <a
+                    target={'_blank'}
+                    href='https://www.google.com.ua/webhp?tab=rw'
+                >Dropbox Access</a>
+            </div>
+            {
+                isOpenPopUp?
+                <div className={'navbar-popup'}>
+                    <div className={'modal-window'}>
+                        <p>Please, enter account private key</p>
+                        <input id="quantity"
+                            placeholder={'Enter account private key'}
+                        />
+                        <div className={'modal-buttons'}>
+                            <button
+                                onClick={() => {setIsOpenPopUp(false)}}
+                                className={'cancel-btn'}
+                            >
+                                <span>Cancel</span>
+                            </button>
+                            <button
+                                onClick={handleAddKey}
+                                className={'confirm-btn'}
+                            >
+                                <span>Confirm</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                :
+                null 
+            }
         </div>
     )
 }

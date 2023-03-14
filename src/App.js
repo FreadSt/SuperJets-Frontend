@@ -8,7 +8,6 @@ import {Upload} from "./pages/dashboard/upload/Upload";
 import { useState } from 'react';
 import { getAccount, signData } from "./utils/MetaMask";
 
-
 async function adminLogin() {
     const from = await getAccount();
     if (!from){
@@ -48,11 +47,11 @@ function App() {
         })
     }
     checkAdmin();
-
   return (
-    isAdmin?
       <Router>
-          <div className="App">
+        {
+            isAdmin?
+            <div className="App">
               <Sidebar/>
               <Navbar/>
               <div className={'pages'}>
@@ -63,9 +62,10 @@ function App() {
                   </Routes>
               </div>
           </div>
+          :
+          <div>You are not admin</div>
+        }
       </Router>
-    :
-    <div/>
   );
 }
 

@@ -38,4 +38,105 @@
       }
     }
   }
+  .buttons-div{
+    display: flex;
+    align-items: center;
+    margin-left: 48vh;
+    .nav-btn{
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 0px 10px 0px 0px;
+      border: none;
+      border-radius: 5px;
+      width: 80px;
+      height: 32px;
+      background:  #22272E;
+      border-radius: 4px;
+        span{
+          color: #FFFFFF;
+        }
+    }
+    a{
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+  .navbar-popup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 1.3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.75);
+    z-index: 99;
+    .modal-window{
+      width: 360px;
+      height: 200px;
+      padding: 40px 20px 20px;
+      background-color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-evenly;
+      p{
+        margin: 0;
+        font-family: InterMedium;
+        font-size: 16px;
+        line-height: 20px;
+        color: #22272E;
+        b{
+          font-family: InterBold;
+        }
+      }
+      input{
+        width: 90%;
+        padding: 0px 16px;
+        height: 43px;
+        background: rgba(34, 39, 46, 0.05);
+        border: 1px solid rgba(34, 39, 46, 0.1);
+        border-radius: 4px;
+        font-family: InterMedium;
+      }
+      ::placeholder{
+        font-family: InterMedium;
+      }
+      .modal-buttons{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        button{
+          width: 170px;
+          height: 47px;
+          padding: 0px 16px;
+          cursor: pointer;
+          border-radius: 4px;
+          span{
+            font-size: 14px;
+            font-family: InterSemiBold;
+          }
+        }
+        .cancel-btn{
+          background-color: transparent;
+          border: 1px solid #22272E;
+          span{
+            color: #22272E;
+          }
+        }
+        .confirm-btn{
+          background-color: #22272E;
+          border: none;
+          span{
+            color: #FFFFFF;
+          }
+        }
+      }
+    }
+  }
 }
